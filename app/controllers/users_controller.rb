@@ -16,9 +16,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user_image = UserImage.new
+    @user = UserImage.new
   end
-  
+
    private
   def book_params
     params.require(:book).permit(:title, :body, :image)
