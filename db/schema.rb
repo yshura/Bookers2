@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 2022_07_11_082100) do
   create_table "books", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "book_title"
-    t.text "book_body"
+    t.string "title"
+    t.text "body"
     t.integer "user_id"
   end
 
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2022_07_11_082100) do
     t.datetime "remember_created_at"
     t.string "name"
     t.text "introduction"
+    t.string "profile_image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
