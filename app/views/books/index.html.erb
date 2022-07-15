@@ -19,31 +19,14 @@
        </tbody>
      </table>
      <div class="row">
-         <%= link_to "edit", edit_user_path(@user.id) %>
+         <%= link_to "edit", edit_user_path(@user.id), class: 'btn btn-outline-secondary btn-block fa-solid fa-user-cog' %>
      </div>
-
-
-
-    <h2>New Book</h2>
-    <%= form_with model:@book, url: '/books', method: :post do |f| %>
-     <div class="form-group">
-        <%= f.label :title, "Title" %>
-        <%= f.text_field :title %>
-     </div>
-     <div class ="form-group">
-        <%= f.label :body, "Opinion" %>
-        <%= f.text_area :body %>
-     </div>
-     <div class= "form-group">
-        <%=f.submit 'Create Book' %>
-     </div>
-    <% end %>
-   </div>
-
+     <%= render 'side', book: @book %>
+    </div>
 
    <div class="col-md-8 offset-md-1">
        <h2>Books</h2>
-        <table>
+        <table class="table table-hover table-inverse">
           <thead>
             <tr>
               <th></th>
