@@ -23,7 +23,9 @@
        </tbody>
      </table>
      <div class="row">
-         <%= link_to "edit", edit_user_path(@user.id), class: 'btn btn-outline-secondary btn-block fa-solid fa-user-cog' %>
+         <%= link_to edit_user_path(@user.id), class: 'btn btn-outline-secondary btn-block' do %>
+         <i class="fas fa-user-cog"></i>
+         <% end %>
      </div>
      <%= render 'books/side', book: @book %>
    </div>
@@ -42,7 +44,10 @@
           <tbody>
           <% @books.each do |book| %>
             <tr>
-              <td><%= image_tag @user.get_profile_image(100,100) %></td>
+              <td><%= link_to user_path(book.user.id) do %>
+                  <%= image_tag (@user.get_profile_image(100,100)) %>
+                  <% end %>
+              </td>
 
               <td>
                   <%= link_to book.title, book_path(book.id) %>

@@ -14,16 +14,18 @@
         </tr>
         <tr>
          <th>name</th>
-         <th><%= @book_datail.user.name %></th>
+         <th><%= @book_detail.user.name %></th>
         </tr>
         <tr>
          <th>introduction</th>
-         <th><%= @book_datail.user.introduction %></th>
+         <th><%= @book_detail.user.introduction %></th>
         </tr>
        </tbody>
      </table>
      <div class="row">
-         <%= link_to "edit", edit_user_path(@user.id), class: 'btn btn-outline-secondary btn-block fa-solid fa-user-cog' %>
+         <%= link_to edit_user_path(@user.id), class: 'btn btn-outline-secondary btn-block' do %>
+         <i class="fas fa-user-cog"></i>
+         <% end %>
      </div>
      <%= render 'side', book: @book %>
    </div>
@@ -35,18 +37,18 @@
             <tr>
               <td><%= link_to user_path(@user.id) do %>
                    <%= image_tag(@user.get_profile_image(100,100)) %><br>
-                   <%= @book_datail.user.name %>
+                   <%= @book_detail.user.name %>
                   <% end %>
               </td>
               <td>
-                  <%= link_to @book_datail.title %>
+                  <%= link_to @book_detail.title %>
                   <%# bookのshowリンク %>
               </td>
-              <td><%= @book_datail.body %>
+              <td><%= @book_detail.body %>
               </td>
               <% if @user == current_user%>
-              <td><%= link_to "Edit", edit_book_path(@book_datail.id), class: 'btn btn-sm btn-success' %></td>
-              <td><%= link_to "Destroy", book_path(@book_datail.id), method: :delete, "data-confirm" => "本当に消しますか？", class: 'btn btn-sm btn-danger' %></td>
+              <td><%= link_to "Edit", edit_book_path(@book_detail.id), class: 'btn btn-sm btn-success' %></td>
+              <td><%= link_to "Destroy", book_path(@book_detail.id), method: :delete, "data-confirm" => "本当に消しますか？", class: 'btn btn-sm btn-danger' %></td>
               <% end %>
             </tr>
           </tbody>
